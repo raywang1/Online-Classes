@@ -1,0 +1,343 @@
+# Ray Wang Week 1 Homework
+
+
+#5 INTRO QUESTIONS
+
+
+
+"""
+#1/5
+
+#Question 4: Area of a Field
+
+length = float(input("What is the length of the field? "))
+width = float(input("What is the width of the field? "))
+sqftintoacres = 43560
+
+acres = length * width / sqftintoacres
+
+print (f"The area of the field is {acres} acres.")
+"""
+
+
+
+"""
+#2/5
+
+#Question 5: Bottle Deposits
+
+one_litre = int(input("How many 1 litre bottles are there? "))
+more_than_one = int(input("How many more than 1 litre bottles are there? "))
+
+one = one_litre * 0.1
+more = more_than_one * 0.25
+
+refund = (one + more)
+
+print ("The total refund will be $%.2f." %refund)
+"""
+
+
+
+"""
+#3/5
+
+#Question 6: Tax and Tip
+
+meal_cost = int(input("How much did the meal cost? $"))
+tax = meal_cost * 0.13
+tip = meal_cost * 0.18
+total_cost = meal_cost + tax + tip
+
+print ("The tax of the meal is $%.2f, the tip is $%.2f, and the grand total is $%.2f" % (tax,tip, total_cost))
+"""
+
+
+
+"""
+#4/5
+
+#Question 7 Sum of the First n Positive Integers
+
+n = int(input("Please enter a positive interger"))
+sm = n * (n*1) / 2
+
+print (f"The sum of the first positive {n} intergers is {sm}.")
+"""
+
+
+
+"""
+#5/5
+
+#Questin 8: Widgets and Gizmos
+
+widgets = int(input("How many widgets did you order? "))
+gizmos = int(input("How many gizmos did you order? "))
+widget_weight = widgets * 75
+gizmo_weight = gizmos * 112
+total_weight = widget_weight + gizmo_weight
+
+print (f"The total weight of your order will be {total_weight}grams.")
+"""
+
+
+#5 IF STATEMENT QUESTIONS
+
+
+"""
+#1/5
+
+#Question 38: Month Name to Number of Days
+
+month = str(input("Enter name of a month: "))
+days = 31
+if month == "April" or month == "June" or month == "September" or month == "November":
+  days = 30
+elif month == "February":
+  days = "28 or 29"
+
+print (f"{month} has {days} days in it.")
+"""
+
+
+
+"""
+#2/5
+
+#Question 39: Sound Levels
+
+sound = int(input("What is the sound level in decibles? "))
+noise = ""
+
+if sound == 130:
+  noise = "the same as a jackhammer"
+if sound == 106:
+  noise = "the same as gas lawnmower"
+if sound == 70:
+  noise = "the same as alarm clock"
+if sound == 40:
+  noise = "the same as quiet room"
+if sound >= 131:
+  noise = "even louder than a jackhammer"
+if sound <= 129 and sound >= 107:
+  noise = "between how loud a gas lawnmower and a jackhammer is"
+if sound <= 105 and sound >= 71:
+  noise = "between how loud an alarm clock and a gas lawnmower is"
+if sound <= 69 and sound >= 41:
+  noise = "between how loud a quiet room and an alarm clock is"
+if sound <= 39:
+  noise = "even quieter than a quiet room"
+
+print (f"The level of sound is {noise}.")
+"""
+
+
+
+"""
+#3/5
+
+#Question 40: Name that Triangle
+
+side_one = float(input("Enter the length of side 1: "))
+side_two = float(input("Enter the length of side 2: "))
+side_three = float(input("Enter the length of side 3: "))
+triangle = ""
+
+if side_one == side_two and side_two == side_three:
+  triangle = "equilateral"
+elif side_one == side_two or side_two == side_three or side_three == side_one:
+  triangle = "isosceles"
+else:
+  triangle = "scalene"
+
+print (f"That is a {triangle} triangle.")
+"""
+
+
+
+"""
+#4/5
+
+#Question 41: Note to Frequency
+
+C4 = 261.63
+D4 = 293.66
+E4 = 329.63
+F4 = 349.23
+G4 = 392.00
+A4 = 440.00
+B4 = 493.88
+
+name = str(input("Enter a double character note name such as C4: "))
+note = name[0]
+octave = int(name[1])
+
+if note == "C":
+  freq = C4
+elif note == "D":
+  freq = D4
+elif note == "E":
+  freq = E4
+elif note == "F":
+  freq = F4
+elif note == "G":
+  freq = G4
+elif note == "A":
+  freq = A4
+elif note == "B":
+  freq = B4
+freq = freq / 2 * (4 - octave)
+
+print (f"The frequency of {name} is {freq}.")
+"""
+
+
+
+"""
+#5/5
+
+#Question 43: Faces on Money
+
+amount = int(input("How much is your banknote worth? "))
+
+if amount == 1:
+  face = "George Washington"
+elif amount == 2:
+  face = "Thomas Jefferson"
+elif amount == 5:
+  face = "Abraham Lincoln"
+elif amount == 10:
+  face = "Alexander Hamilton"
+elif amount == 20:
+  face = "Andrew Jackson"
+elif amount == 50:
+  face = "Ulysses S. Grant"
+elif amount == 100:
+  face = "Benjamin Franklin"
+else:
+  face = "No such bill exists :("
+
+if face == "George Washington" or face == "Thomas Jefferson" or face == "Abraham Lincoln" or face == "Alexander Hamilton" or face == "Andrew Jackson" or face == "Ulysses S. Grant" or face == "Benjamin Franklin":
+  print (f"The bill has {face}'s face on it.")
+else:
+  print (face)
+  """
+
+
+  #5 LOOP QUESTIONS
+
+
+"""
+#1/5
+
+#Question 61: Average
+
+count = 0
+sum = 0.0
+number = 1
+
+while number != 0:
+	number = int(input("Insert integer numbers to calculate their average. Insert 0 to finish: "))
+	sum = sum + number
+	count += 1
+
+if count == 0:
+	print ("ERROR! Cannot enter 0 as first number.")
+else:
+  print (f"Average is {sum}"
+"""
+
+
+
+"""
+#2/5
+
+#Exercise 62: Discount Table
+
+prices = [4.95, 9.95, 14.95, 19.95, 24.95]
+
+for price in prices:
+	discount = price * 0.6
+	new_price = price * 0.4
+	print ("price: %s, discount: %.2f, new price: %.2f" % (price, disc, new_price))
+"""
+
+
+
+"""
+#3/5
+
+#Exercise 64: No More Pennies
+
+pennies_in_nickel = 5
+nickel = 0.05
+total = 0.00
+
+line = str(input("Enter the price of the item, leave blank to quit: ")
+while line != "":
+  total = total + float(line)
+  line = str(input("Enter the price of the item, leave blank to quit: "))
+
+print ("The amount payable is %.02f" % total)
+
+round = total * 100 % pennies_in_nickel
+if round < pennies_in_nickel / 2:
+  cash = total - round / 100
+else:
+  cash = total + nickel - round / 100
+  """
+
+
+
+"""
+#4/5
+
+#Exercise 67: Admission Price
+
+sum = 0
+age = 0
+
+while age != "":
+	try:
+		age = int(input("Please enter age of each person in group one line at a time, leave line blank to end: "))
+	except ValueError:
+		break
+
+	if age <= 2:
+		pass
+	elif 2 < age <= 12:
+		sum += 14
+	elif age >= 65:
+		sum += 18
+	else:
+		sum += 23
+
+print ("Price of group ticket is $%.2f" % sum)
+"""
+
+
+
+"""
+#5/5
+
+#Exercise 72: Is a String a Palindrome
+
+line = str(input("Enter a string in all lowercase please: "))
+
+palindrome = True
+for i in range (0, len(line) / 2):
+  if line [i] != line [len(line) - i - 1]:
+    palindrome = False
+if palindrome:
+  print (f"{line} is a palindrome")
+else:
+  print (f"{line} is not a palindrome")
+"""
+
+"""
+NOTE:
+Hi sir, I was able to complete most questions I selected pretty well however for the the first LOOP question I recieve an error message but it does not clearly state to me what is wrong. Also, in the fifth LOOP question I recieve an error message that I am not sure how to resolve. I checked the answers for help but even putting in what the answers had wrote I could not fix the error. Maybe it has something to do with replit?
+I would greatly appreciate some clarification about these two exercises specifically.
+Thanks, Ray
+"""
