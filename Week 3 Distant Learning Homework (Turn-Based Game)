@@ -1,0 +1,387 @@
+Ray Wang Week 3 Distant Learning Homework
+
+#Basic Turn-based game (simple Pokemon battle)
+import random
+import time
+import sys
+
+#Delayed printing (like in the actual game)
+
+def delay_print(s):
+  for c in s:
+    sys.stdout.write(c)
+    sys.stdout.flush()
+    time.sleep(0.05)
+
+#Varibles
+player_1 = ()
+player_2 = ()
+pokemon_1 = ()
+pokemon_2 = ()
+pokemon1_type = ()
+pokemon2_type = ()
+pokemon1_health = 100
+pokemon2_health = 100
+msg = ()
+
+delay_print ("Welcome to the Pokemon Arena!\nYou will now recieve a random Pokemon")
+print ("\n")
+
+# Player 1 Recieves a POKEMON
+player_1 = (input("Player 1, press enter to recieve a random pokemon "))
+roll = random.randrange(1, 7)
+if roll == 1:
+  pokemon_1 = "Bulbasaur"
+  pokemon1_type = "grass"
+elif roll == 2:
+  pokemon_1 = "Squirtle"
+  pokemon1_type = "water"
+elif roll == 3:
+  pokemon_1 = "Charmandar"
+  pokemon1_type = "fire"
+elif roll == 4:
+  pokemon_1 = "Turtwig"
+  pokemon1_type = "grass"
+elif roll == 5:
+  pokemon_1 = "Piplup"
+  pokemon1_type = "water"
+elif roll == 6:
+  pokemon_1 = "Chimchar"
+  pokemon1_type = "fire"
+
+print ("\n")
+delay_print (f"You have recieved {pokemon_1}, a {pokemon1_type} type Pokemon!")
+
+#Player 2 Recieves a POKEMON
+print ("\n")
+player_2 = (input("Player 2, press enter to recieve a random pokemon "))
+roll = random.randrange(1, 7)
+if roll == 1:
+  pokemon_2 = "Bulbasaur"
+  pokemon2_type = "grass"
+elif roll == 2:
+  pokemon_2 = "Squirtle"
+  pokemon2_type = "water"
+elif roll == 3:
+  pokemon_2 = "Charmandar"
+  pokemon2_type = "fire"
+elif roll == 4:
+  pokemon_2 = "Turtwig"
+  pokemon2_type = "grass"
+elif roll == 5:
+  pokemon_2 = "Piplup"
+  pokemon2_type = "water"
+elif roll == 6:
+  pokemon_2 = "Chimchar"
+  pokemon2_type = "fire"
+
+print ("\n")
+delay_print (f"You have recieved {pokemon_2}, a {pokemon2_type} type Pokemon!")
+
+#Battle
+turns = 0
+
+while True:
+  
+  if turns % 2 == 0:
+    print ("\n")
+    delay_print ("BEGINNING NEW TURN")
+
+    #Player 1 select their ACTION
+    while True:
+      print ("\n")
+      move = int(input("Player 1's turn, Enter number 1 to use a normal attack, 2 to use special attack, 3 to increase stats, or 4 to flee from battle: "))
+      if move == 5 or move >= 5:
+        print ("\n")
+        print ("Please only input numbers based on the options above")
+      else:
+        break
+    
+    #If Player 1 has GRASS type POKEMON
+    if move == 1:
+      move = "SLASH"
+      pokemon2_health = pokemon2_health -+ 15
+      msg = "this move does regular damage"
+      print ("\n")
+      delay_print (f"{pokemon_1} used {move} on {pokemon_2}")
+      print ("\n")
+      delay_print (msg)
+      print ("\n")
+      delay_print (f"{pokemon_2} now has {pokemon2_health} health")
+    if move == 2 and pokemon1_type == "grass" and pokemon2_type == "grass":
+      move = "RAZOR LEAF"
+      pokemon2_health = pokemon2_health -+ 15
+      msg = "this move does regular damage"
+      print ("\n")
+      delay_print (f"{pokemon_1} used {move} on {pokemon_2}")
+      print ("\n")
+      delay_print (msg)
+      print ("\n")
+      delay_print (f"{pokemon_2} now has {pokemon2_health} health")
+    if move == 2 and pokemon1_type == "grass" and pokemon2_type == "water":
+      move = "RAZOR LEAF"
+      msg = "it's super effective"
+      pokemon2_health = pokemon2_health -+ 30
+      print ("\n")
+      delay_print (f"{pokemon_1} used {move} on {pokemon_2}")
+      print ("\n")
+      delay_print (msg)
+      print ("\n")
+      delay_print (f"{pokemon_2} now has {pokemon2_health} health")
+    if move == 2 and pokemon1_type == "grass" and pokemon2_type == "fire":
+      move = "RAZOR LEAF"
+      pokemon2_health = pokemon2_health -+ 5
+      msg = "it wasn't very effective"
+      print ("\n")
+      delay_print (f"{pokemon_1} used {move} on {pokemon_2}")
+      print ("\n")
+      delay_print (msg)
+      print ("\n")
+      delay_print (f"{pokemon_2} now has {pokemon2_health} health")
+    
+    #If Player 1 has WATER type POKEMON
+    if move == 2 and pokemon1_type == "water" and pokemon2_type == "grass":
+      move = "WATER GUN"
+      pokemon2_health = pokemon2_health -+ 5
+      msg = "it wasn't very effective"
+      print ("\n")
+      delay_print (f"{pokemon_1} used {move} on {pokemon_2}")
+      print ("\n")
+      delay_print (msg)
+      print ("\n")
+      delay_print (f"{pokemon_2} now has {pokemon2_health} health")
+    if move == 2 and pokemon1_type == "water" and pokemon2_type == "water":
+      move = "WATER GUN"
+      pokemon2_health = pokemon2_health -+ 15
+      msg = "this move does regular damage"
+      print ("\n")
+      delay_print (f"{pokemon_1} used {move} on {pokemon_2}")
+      print ("\n")
+      delay_print (msg)
+      print ("\n")
+      delay_print (f"{pokemon_2} now has {pokemon2_health} health")
+    if move == 2 and pokemon1_type == "water" and pokemon2_type == "fire":
+      move = "WATER GUN"
+      pokemon2_health = pokemon2_health -+ 30
+      msg = "it's super effective"
+      print ("\n")
+      delay_print (f"{pokemon_1} used {move} on {pokemon_2}")
+      print ("\n")
+      delay_print (msg)
+      print ("\n")
+      delay_print (f"{pokemon_2} now has {pokemon2_health} health")
+    
+    #If Player 1 has FIRE type POKEMON
+    if move == 2 and pokemon1_type == "fire" and pokemon2_type == "grass":
+      move = "FLAMETHROWER"
+      pokemon2_health = pokemon2_health -+ 30
+      msg = "it's super effective"
+      print ("\n")
+      delay_print (f"{pokemon_1} used {move} on {pokemon_2}")
+      print ("\n")
+      delay_print (msg)
+      print ("\n")
+      delay_print (f"{pokemon_2} now has {pokemon2_health} health")
+    if move == 2 and pokemon1_type == "fire" and pokemon2_type == "water":
+      move = "FLAMETHROWER"
+      pokemon2_health = pokemon2_health -+ 5
+      msg = "it wasn't very effective"
+      print ("\n")
+      delay_print (f"{pokemon_1} used {move} on {pokemon_2}")
+      print ("\n")
+      delay_print (msg)
+      print ("\n")
+      delay_print (f"{pokemon_2} now has {pokemon2_health} health")
+    if move == 2 and pokemon1_type == "fire" and pokemon2_type == "fire":
+      move = "FLAMETHROWER"
+      pokemon2_health = pokemon2_health -+ 15
+      msg = "this move does regular damage"
+      print ("\n")
+      delay_print (f"{pokemon_1} used {move} on {pokemon_2}")
+      print ("\n")
+      delay_print (msg)
+      print ("\n")
+      delay_print (f"{pokemon_2} now has {pokemon2_health} health")
+    
+    #If Player 1 increases stats of POKEMON
+    if move == 3:
+      pokemon1_health = pokemon1_health ++ 15 
+      msg = "health has increased to"
+      print ("\n")
+      delay_print (f"{pokemon_1} used REST")
+      print ("\n")
+      delay_print (f"{pokemon_1}'s {msg} {pokemon1_health}")
+      
+    #If Player 1 FORFEITS
+    if move == 4:
+      pokemon1_health = 0
+      print ("\n")
+      delay_print ("Player 1 has fled the battle")
+
+    #Check to see if anyone has LOST and announces WINNER
+    if pokemon1_health == 0 or pokemon1_health <= 0:
+      print ("\n")
+      delay_print (f"{pokemon_1} has fainted")
+      print ("\n")
+      delay_print ("PLAYER 2 WINS!! :)")
+      break
+    if pokemon2_health == 0 or pokemon2_health <= 0:
+      print ("\n")
+      delay_print (f"{pokemon_2} has fainted")
+      print ("\n")
+      delay_print ("PLAYER 1 WINS!! :)")
+      break
+    
+  else:
+    
+    #Player 2 select their ACTION
+    while True:
+      print ("\n")
+      move = int(input("Player 2's turn, Enter number 1 to use a normal attack, 2 to use special attack, 3 to increase stats, or 4 to flee from battle: "))
+      if move == 5 or move >= 5:
+        print ("\n")
+        print ("Please only input numbers based on the options above")
+      else:
+        break
+
+    #If Player 2 selects normal attack
+    if move == 1:
+      move = "SLASH"
+      pokemon1_health = pokemon1_health -+ 15
+      msg = "this move does regular damage"
+      print ("\n")
+      delay_print (f"{pokemon_2} used {move} on {pokemon_1}")
+      print ("\n")
+      delay_print (msg)
+      print ("\n")
+      delay_print (f"{pokemon_1} now has {pokemon1_health} health")
+    
+    #If Player 2 has GRASS type POKEMON
+    if move == 2 and pokemon2_type == "grass" and pokemon1_type == "grass":
+      move = "RAZOR LEAF"
+      pokemon1_health = pokemon1_health -+ 15
+      msg = "this move does regular damage"
+      print ("\n")
+      delay_print (f"{pokemon_2} used {move} on {pokemon_1}")
+      print ("\n")
+      delay_print (msg)
+      print ("\n")
+      delay_print (f"{pokemon_1} now has {pokemon1_health} health")
+    if move == 2 and pokemon2_type == "grass" and pokemon1_type == "water":
+      move = "RAZOR LEAF"
+      msg = "it's super effective"
+      pokemon1_health = pokemon1_health -+ 30
+      print ("\n")
+      delay_print (f"{pokemon_2} used {move} on {pokemon_1}")
+      print ("\n")
+      delay_print (msg)
+      print ("\n")
+      delay_print (f"{pokemon_1} now has {pokemon1_health} health")
+    if move == 2 and pokemon2_type == "grass" and pokemon1_type == "fire":
+      move = "RAZOR LEAF"
+      pokemon1_health = pokemon1_health -+ 5
+      msg = "it wasn't very effective"
+      print ("\n")
+      delay_print (f"{pokemon_2} used {move} on {pokemon_1}")
+      print ("\n")
+      delay_print (msg)
+      print ("\n")
+      delay_print (f"{pokemon_1} now has {pokemon1_health} health")
+    
+    #If Player 2 has WATER type POKEMON
+    if move == 2 and pokemon2_type == "water" and pokemon1_type == "grass":
+      move = "WATER GUN"
+      pokemon1_health = pokemon1_health -+ 5
+      msg = "it wasn't very effective"
+      print ("\n")      
+      delay_print (f"{pokemon_2} used {move} on {pokemon_1}")
+      print ("\n")
+      delay_print (msg)
+      print ("\n")
+      delay_print (f"{pokemon_1} now has {pokemon1_health} health")
+    if move == 2 and pokemon2_type == "water" and pokemon1_type == "water":
+      move = "WATER GUN"
+      pokemon1_health = pokemon1_health -+ 15
+      msg = "this move does regular damage"
+      print ("\n")
+      delay_print (f"{pokemon_2} used {move} on {pokemon_1}")
+      print ("\n")
+      delay_print (msg)
+      print ("\n")
+      delay_print (f"{pokemon_1} now has {pokemon1_health} health")
+    if move == 2 and pokemon2_type == "water" and pokemon1_type == "fire":
+      move = "WATER GUN"
+      pokemon1_health = pokemon1_health -+ 30
+      msg = "it's super effective"
+      print ("\n")
+      delay_print (f"{pokemon_2} used {move} on {pokemon_1}")
+      print ("\n")
+      delay_print (msg)
+      print ("\n")
+      delay_print (f"{pokemon_1} now has {pokemon1_health} health")
+    
+    #If Player 2 has FIRE type POKEMON
+    if move == 2 and pokemon2_type == "fire" and pokemon1_type == "grass":
+      move = "FLAMETHROWER"
+      pokemon1_health = pokemon1_health -+ 30
+      msg = "it's super effective"
+      print ("\n")
+      delay_print (f"{pokemon_2} used {move} on {pokemon_1}")
+      print ("\n")
+      delay_print (msg)
+      print ("\n")
+      delay_print (f"{pokemon_1} now has {pokemon1_health} health")
+    if move == 2 and pokemon2_type == "fire" and pokemon1_type == "water":
+      move = "FLAMETHROWER"
+      pokemon1_health = pokemon1_health -+ 5
+      msg = "it wasn't very effective"
+      print ("\n")
+      delay_print (f"{pokemon_2} used {move} on {pokemon_1}")
+      print ("\n")
+      delay_print (msg)
+      print ("\n")
+      delay_print (f"{pokemon_1} now has {pokemon1_health} health")
+    if move == 2 and pokemon2_type == "fire" and pokemon1_type == "fire":
+      move = "FLAMETHROWER"
+      pokemon1_health = pokemon1_health -+ 15
+      msg = "this move does regular damage"
+      print ("\n")
+      delay_print (f"{pokemon_2} used {move} on {pokemon_1}")
+      print ("\n")
+      delay_print (msg)
+      print ("\n")
+      delay_print (f"{pokemon_1} now has {pokemon1_health} health")
+    
+    #If Player 2 increases stats of POKEMON
+    if move == 3:
+      pokemon2_health = pokemon2_health ++ 15 
+      msg = "health has increased to"
+      print ("\n")
+      delay_print (f"{pokemon_2} used REST")
+      print ("\n")
+      delay_print (f"{pokemon_2}'s {msg} {pokemon2_health}")
+      
+    #If Player 2 FORFEITS
+    if move == 4:
+      pokemon2_health = 0
+      print ("\n")
+      delay_print ("Player 2 has fled the battle")
+    
+    #Check to see if anyone has LOST and announces WINNER
+    if pokemon1_health == 0 or pokemon1_health <= 0:
+      print ("\n")
+      delay_print (f"{pokemon_1} has fainted")
+      print ("\n")
+      delay_print ("PLAYER 2 WINS!! :)")
+      break
+    if pokemon2_health == 0 or pokemon2_health <= 0:
+      print ("\n")
+      delay_print (f"{pokemon_2} has fainted")
+      print ("\n")
+      delay_print ("PLAYER 1 WINS!! :)")
+      break
+
+    print ("\n")
+    delay_print ("TURN HAS ENDED")
+  
+  turns += 1
