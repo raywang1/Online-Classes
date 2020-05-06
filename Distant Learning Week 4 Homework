@@ -1,0 +1,110 @@
+#Ray Wang Distant Learning Week 4 Homework
+
+"""
+#NUMBER GUESSING GAME
+
+import random
+
+player_number = ""
+number = ""
+guesses = ""
+guess = ""
+
+number = random.randrange(1, 101)
+guesses = 0
+
+while True:
+  guess = int(input("Guess the number I am thinking of: "))
+  guesses += 1
+
+  if guess == number:
+    print ("Your guess is correct!")
+    print (f"It took you {guesses} guesses to find the answer.")
+    break
+  else:
+    print ("Incorrect!")
+    if guess >= number:
+      print ("My number is lower")
+    else:
+      print ("My number is higher")
+"""
+
+
+"""
+#SNAKES AND LADDERS
+
+import random
+
+position = 0
+roll = ""
+turns = 0
+
+while True:
+  turns += 1
+  input("Press ENTER to roll")
+  
+  roll = random.randrange(1, 7)
+  print (f"You rolled a {roll}")
+  position = position + roll
+
+  #Ladders
+  if position == 1:
+    print ("You found a ladder at Square 1!")
+    position = 38
+  if position == 4:
+    print ("You found a ladder at Square 4!")
+    position = 14
+  if position == 8:
+    print ("You found a ladder at Square 8!")
+    position = 30
+  if position == 21:
+    print ("You found a ladder at Square 21!")
+    position = 42
+  if position == 28:
+    print ("You found a ladder at Square 28!")
+    position = 76
+  if position == 50:
+    print ("You found a ladder at Square 50!")
+    position = 67
+  if position == 71:
+    print ("You found a ladder at Square 71!")
+    position = 92
+  if position == 80:
+    print ("You found a ladder at Square 80!")
+    position = 99
+  
+  #Snakes
+  if position == 32:
+    print ("You slid down a snake at Square 32!")
+    posiion = 10
+  if position == 36:
+    print ("You slid down a snake at Square 36!")
+    position = 6
+  if position == 48:
+    print ("You slid down a snake at Square 48!")
+    position = 26
+  if position == 62:
+    print ("You slid down a snake at Square 62!")
+    position = 18
+  if position == 88:
+    print ("You slid down a snake at Square 88!")
+    position = 24
+  if position == 95:
+    print ("You slid down a snake at Square 95!")
+    position = 56
+  if position == 97:
+    print ("You slid down a snake at Square 97!")
+    position = 78
+
+  #WINNING
+  if position >= 101:
+    position -= roll
+    print ("You overshot! Roll does not count.")
+    print (f"You are still at Square {position}.")
+  elif position == 100:
+    print ("Congratulations! You Win!")
+    print (f"It took you {turns} turns to win.")
+    break
+  else:
+    print (f"You are now at Square {position}")
+"""
