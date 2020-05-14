@@ -1,0 +1,659 @@
+#Ray Wang Distant Learning Week 5
+#Adventure Game
+
+"""
+Planning:
+Setting: Abandoned Orphanage
+Rooms: 9 - imagine 3x3 square
+Route: Start at bottom left, player tries to get to exit at top right room
+Each room has a different colour
+Some doors are unlocked some are locked
+Exit key will be in top left room
+
+How to Play and Win:
+1. Search drawer for red key and search undermatress for blue key
+  next two doors are red and blue
+2. Go through red door into red room
+  Search inside shoes for black key
+3. Go through blue door into blue room.
+  Search under bed for snacks.
+  Search behind bookshelf for orange key.
+4. Go to orange room - This is the bottom right if you imagine the 3x3 square
+  Search inside jacket 2 pocket  for silver key
+5. Go to black room
+  Search fridge for bottle of water
+  Search inside pantry for yellow key
+6. Go to yellow room
+  Give water to kid for green key
+7. Go to green room
+  Give snacks to kid for purple key
+8. Go to purple room
+  Take hammer
+  Destroy barricade and leave
+Win
+"""
+#Varibles
+red_locked = True
+blue_locked = True
+orange_locked = True
+black_locked = True
+yellow_locked = True
+silver_locked = True
+green_locked = True
+purple_locked = True
+boy_hungry = True
+girl_thirsty = True
+barricade_up = True
+red_key = False
+blue_key = False
+orange_key = False
+black_key = False
+yellow_key = False
+silver_key = False
+green_key = False
+purple_key = False
+snacks = False
+water = False
+hammer = False
+location = "gold"
+
+print ("You wake up in a room. It's dark. You see a couple of bunk beds but it seems like whoever was last here was leaving in a hurry")
+
+while True:
+  if location == "gold":
+    print ()
+    print ("The room you are in seems to be called the gold room")
+    print ("There are two doors, one marked blue and one marked red")
+    print ("To the left there is a drawer")
+    print ("To the right there is a bed with the mattress not properly in place.")
+    print ("There is also a cabinet")
+    
+    while True:
+      print ()
+      print ("[1] Go to the red door.")
+      print ("[2] Go to the blue door")
+      print ("[3] Search inside drawer.")
+      print ("[4] Search under the mattress")
+      print ("[5] Search inside the cabinet")
+    
+      print ()
+      choice = int(input("What do you want to do: "))
+
+      if choice == 1 and red_locked == True and red_key == False:
+        print ()
+        print ("This door is locked. Find the red key to unlock it.")
+      elif choice == 1 and red_locked == True and red_key == True:
+        print ()
+        print ("The door is locked but you have the key for it. You unlock the door and go in.")
+        location = "red"
+        break
+      elif choice == 1 and red_locked == False:
+        location = "red"
+        break
+      
+      elif choice == 2 and blue_locked == True and blue_key == False:
+        print ()
+        print ("This door is locked. Find the blue key to unlock it")
+      elif choice == 2 and blue_locked == True and blue_key == True:
+        print ()
+        print ("This door is locked but you have the key for it. You unlock the door and go in")
+        location = "blue"
+        break
+      elif choice == 2 and blue_locked == False:
+        location = "blue"
+        break
+      
+      elif choice == 3 and red_key == False:
+        print ()
+        print ("You search inside the drawer and find a red key. You decide to keep it incase you need it later")
+        red_key = True
+      elif choice == 3 and red_key == True:
+        print ()
+        print ("You have already searched here. There is nothing else in this drawer that you need")
+      
+      elif choice == 4 and blue_key == False:
+        print ()
+        print ("You search under the mattress and find a blue key. It seems like someone did not want people to know and find their secret treasure. You take it incase you need it later.")
+        blue_key = True
+      elif choice == 4 and blue_key == True:
+        print ()
+        print ("You have already searched here. There is nothing else under the mattress.")
+      
+      else:
+        print ()
+        print ("You search inside the cabinet for anything. It's empty")
+      
+  if location == "red":
+    print ()
+    print ("You enter the red room.")
+    print ("It seems like another dorm room.")
+    print ("There are three doors. One is yellow, one is green, and one is gold.")
+    print ("To the left there is a drawer.")
+    print ("To the right there are some shoes that someone left behind.")
+    print ("There is also a closet that was left slightly open.")
+
+    while True:
+      print ()
+      print ("[1] Go to the yellow door.")
+      print ("[2] Go to the green door.")
+      print ("[3] Go to the gold door.")
+      print ("[4] Search inside drawer.")
+      print ("[5] Inspect the shoes.")
+      print ("[6] Search inside the closet.")
+
+      print ()
+      choice = int(input("What do you want to do: "))
+
+      if choice == 1 and yellow_locked == True and yellow_key == False:
+        print ()
+        print ("This door is locked. Find the yellow key to unlock it.")
+      elif choice == 1 and yellow_locked == True and yellow_key == True:
+        print ()
+        print ("The door is locked but you have the key for it. You unlock the door and go in.")
+        location = "yellow"
+        break
+      elif choice == 1 and yellow_locked == False:
+        location = "yellow"
+        break
+      
+      elif choice == 2 and green_locked == True and green_key == False:
+        print ()
+        print ("This door is locked. Find the green key to unlock it.")
+      elif choice == 2 and green_locked == True and green_key == True:
+        print ()
+        print ("The door is locked but you have the key for it. You unlock the door and go in.")
+        location = "green"
+        break
+      elif choice == 2 and green_locked == False:
+        location = "green"
+        break
+
+      elif choice == 3:
+        print ()
+        location = "gold"
+        break
+      
+      elif choice == 4:
+        print ()
+        print ("You search inside the drawer and find nothing you need.")
+      
+      elif choice == 5 and black_key == False:
+        print ()
+        print ("You inspect the shoes and find a black key inside the left one. You decide to keep it incase you need it later")
+        black_key = True
+      elif choice == 5 and black_key == True:
+        print ()
+        print ("You have already inspected the shoes. There is nothing left in them except stink")
+      
+      elif choice == 6:
+        print ()
+        print ("You search inside the closet and find nothing you need.")
+
+  if location == "blue":
+    print ()
+    print ("You enter the blue room")
+    print ("It seems like another dorm room")
+    print ("There are three doors. One is yellow, one is orange, and one is gold.")
+    print ("To the left there is a bookshelf.")
+    print ("To the right there is a jacket that someone left hanging on a hook.")
+    print ("There is also a bed that was left very neatly made.")
+
+    while True:
+      print ()
+      print ("[1] Go to the yellow door.")
+      print ("[2] Go to the orange door.")
+      print ("[3] Go to the gold door.")
+      print ("[4] Search around the book shelf.")
+      print ("[5] Take a look inside the jacket pockets.")
+      print ("[6] Search under the bed.")
+
+      print ()
+      choice = int(input("What do you want to do: "))
+
+      if choice == 1 and yellow_locked == True and yellow_key == False:
+        print ()
+        print ("This door is locked. Find the yellow key to unlock it.")
+      elif choice == 1 and yellow_locked == True and yellow_key == True:
+        print ()
+        print ("The door is locked but you have the key for it. You unlock the door and go in.")
+        location = "yellow"
+        break
+      elif choice == 1 and yellow_locked == False:
+        location = "yellow"
+        break
+      
+      elif choice == 2 and orange_locked == True and orange_key == False:
+        print ()
+        print ("This door is locked. Find the orange key to unlock it.")
+      elif choice == 2 and orange_locked == True and orange_key == True:
+        print ()
+        print ("The door is locked but you have the key for it. You unlock the door and go in.")
+        location = "orange"
+        break
+      elif choice == 2 and orange_locked == False:
+        location = "orange"
+        break
+
+      elif choice == 3:
+        print ()
+        location = "spawn"
+        break
+      
+      elif choice == 4 and orange_key == False:
+        print ()
+        print ("You search around the bookshelf and find a orange key in between Romeo & Juliet and Call of The Wild. You decide to keep it incase you need it for later.")
+        orange_key = True
+      elif choice == 4 and orange_key == True:
+        print ()
+        print ("You search around the bookshelf for something you need but can't find anything. You remind yourself you should read a book in one day though.")
+
+      elif choice == 5:
+        print ()
+        print ("You take a look inside the jacket pockets. For some reason it's very wet and there is nothing you need in them.")
+      
+      elif choice == 6 and snacks == False:
+        print ()
+        print ("You look under the bed and find some snacks. Seems like someone had a secret stash of food. You keep the snacks incase you get hungry later.")
+        snacks = True
+      elif choice == 6 and snacks == True:
+        print ()
+        print ("You look under the bed and see nothing that you'll need. There are an unreasonable amount of ants down there though.")
+      
+  if location == "orange":
+    print ()
+    print ("You enter the orange room")
+    print ("It seems like the cafeteria.")
+    print ("There are two doors. One is blue and one is black.")
+    print ("You see three jackets left behind at one of the tables.")
+
+    while True:
+      print ()
+      print ("[1] Go to the blue door.")
+      print ("[2] Go to the black door.")
+      print ("[3] Search pockets of jacket one.")
+      print ("[4] Search pockets of jacket two.")
+      print ("[5] Search pockets of jacket three.")
+
+      print ()
+      choice = int(input("What do you want to do: "))
+    
+      if choice == 1 and blue_locked == True and blue_key == False:
+        print ()
+        print ("This door is locked. Find the blue key to unlock it")
+      elif choice == 1 and blue_locked == True and blue_key == True:
+        print ()
+        print ("This door is locked but you have the key for it. You unlock the door and go in")
+        location = "blue"
+        break
+      elif choice == 1 and blue_locked == False:
+        location = "blue"
+        break
+    
+      elif choice == 2 and black_locked == True and black_key == False:
+        print ()
+        print ("This door is locked. Find the black key to unlock it")
+      elif choice == 2 and black_locked == True and black_key == True:
+        print ()
+        print ("This door is locked but you have the key for it. You unlock the door and go in")
+        location = "black"
+        break
+      elif choice == 2 and black_locked == False:
+        location = "black"
+        break
+
+      elif choice == 3:
+        print ()
+        print ("You look inside the pockets of the first jacket and find nothing except for chocolate bar wrappers.")
+      
+      elif choice == 4 and silver_key == False:
+        print ()
+        print ("You look inside the pockets of the middle jacket and find nothing. You then see a shiny silver key in the hood. You decide the keep this incase you need it later.")
+        silver_key = True
+      elif choice == 4 and silver_key == True:
+        print ()
+        print ("You look inside the pockets of the middle jacket and find nothing that you'll need.")
+
+      elif choice == 5:
+        print ()
+        print ("You look inside the pockets of the third jacket and find nothing except for an empty pack of gum.")
+      
+  if location == "black":
+    print ()
+    print ("You enter the black room. It seems to be like a kitchen.")
+    print ("There are three doors. One is yellow, one is purple, and one is orange.")
+    print ("To the left there is a pantry")
+    print ("To the right there is a bunch of cupboards.")
+    print ("There is also a fridge.")
+      
+    while True:
+      print ()
+      print ("[1] Go to the yellow door.")
+      print ("[2] Go to the orange door.")
+      print ("[3] Go to the purple door.")
+      print ("[4] Search inside the pantry.")
+      print ("[5] Take a look inside the cupboards.")
+      print ("[6] Take a look at what's inside the fridge.")
+
+      print ()
+      choice = int(input("What do you want to do: "))
+
+      if choice == 1 and yellow_locked == True and yellow_key == False:
+        print ()
+        print ("This door is locked. Find the yellow key to unlock it.")
+      elif choice == 1 and yellow_locked == True and yellow_key == True:
+        print ()
+        print ("The door is locked but you have the key for it. You unlock the door and go in.")
+        location = "yellow"
+        break
+      elif choice == 1 and yellow_locked == False:
+        location = "yellow"
+        break
+      
+      elif choice == 2 and orange_locked == True and orange_key == False:
+        print ()
+        print ("This door is locked. Find the orange key to unlock it.")
+      elif choice == 2 and orange_locked == True and orange_key == True:
+        print ()
+        print ("The door is locked but you have the key for it. You unlock the door and go in.")
+        location = "orange"
+        break
+      elif choice == 2 and orange_locked == False:
+        location = "orange"
+        break
+
+      elif choice == 3 and purple_locked == True and purple_key == False:
+        print ()
+        print ("This door is locked. Find the purple key to unlock it.")
+      elif choice == 3 and purple_locked == True and purple_key == True:
+        print ()
+        print ("The door is locked but you have the key for it. You unlock the door and go in.")
+        location = "purple"
+        break
+      elif choice == 3 and purple_locked == False:
+        location = "purple"
+        break
+
+      elif choice == 4 and yellow_key == False:
+        print ()
+        print ("You take a look inside the pantry. There is a yellow key sitting on top of a can of beans. You take it incase you'll need it for later.")
+        yellow_key = True
+      elif choice == 4 and yellow_key == True:
+        print ()
+        print ("You take a look inside the pantry. There is nothing that you will need in here anymore.")
+      
+      elif choice == 5:
+        print ()
+        print ("You take a look inside the cupboards. You don't see anything except for a couple empty mousetraps.")
+      
+      elif choice == 6 and water == False:
+        print ()
+        print ("You take a look inside the fridge and find a bottle of water. You take it incase you get thirsty later.")
+        water = True
+      elif choice == 6 and water == True:
+        pritn ()
+        print ("You take a look inside the fridge but find nothing you need.")
+  
+  if location == "yellow":
+    print ()
+    print ("You enter the yellow room. It seems to be a lounge area.")
+    print ("There are four doors. One is red, one blue, on purple, and one silver.")
+    print ("To the left there a couch with the cushions not placed properly.")
+    print ("To the right there is a little girl who is coughing.")
+
+    while True:
+      print ()
+      print ("[1] Go to the red door.")
+      print ("[2] Go to the blue door.")
+      print ("[3] Go to the purple door.")
+      print ("[4] Go to the silver door.")
+      print ("[5] Inspect the couch and the misplaced cushions.")
+      print ("[6] Ask the girl if she needs help.")
+
+      print ()
+      choice = int(input("What do you want to do: "))
+
+      if choice == 1 and red_locked == True and red_key == False:
+        print ()
+        print ("This door is locked. Find the red key to unlock it.")
+      elif choice == 1 and red_locked == True and red_key == True:
+        print ()
+        print ("The door is locked but you have the key for it. You unlock the door and go in.")
+        location = "red"
+        break
+      elif choice == 1 and red_locked == False:
+        location = "red"
+        break
+
+      elif choice == 2 and blue_locked == True and blue_key == False:
+        print ()
+        print ("This door is locked. Find the blue key to unlock it")
+      elif choice == 2 and blue_locked == True and blue_key == True:
+        print ()
+        print ("This door is locked but you have the key for it. You unlock the door and go in")
+        location = "blue"
+        break
+      elif choice == 2 and blue_locked == False:
+        location = "blue"
+        break
+
+      elif choice == 3 and purple_locked == True and purple_key == False:
+        print ()
+        print ("This door is locked. Find the purple key to unlock it.")
+      elif choice == 3 and purple_locked == True and purple_key == True:
+        print ()
+        print ("The door is locked but you have the key for it. You unlock the door and go in.")
+        location = "purple"
+        break
+      elif choice == 3 and purple_locked == False:
+        location = "purple"
+        break
+    
+      elif choice == 4 and silver_locked == True and silver_key == False:
+        print ()
+        print ("This door is locked. Find the silver key to unlock it.")
+      elif choice == 4 and silver_locked == True and silver_key == True:
+        print ()
+        print ("The door is locked but you have the key for it. You unlock the door and go in.")
+        location = "silver"
+        break
+      elif choice == 4 and silver_locked == False:
+        location = "silver"
+        break
+
+      elif choice == 5:
+        print ()
+        print ("You go to inspect the couch cushions. There is nothing to be found.")
+      
+      elif choice == 6 and girl_thirsty == True and water == False:
+        print ()
+        print ("You go up to the girl and ask if she's okay. She says she is really thirsty and begs for you to bring her some water.")
+      elif choice == 6 and girl_thirsty == True and water == True:
+        print ()
+        print ("You go up to the girl and ask if she's okay. She says she is really thirsty so you give her the water you found earlier. For your kindness she gives you a silver key that she says she stole from the cleaning lady. You keep the key incase you need it for later.")
+        green_key = True
+        girl_thirsty = False
+      elif choice == 6 and girl_thirsty == False:
+        print ()
+        print ("You go up to the girl and ask if she's okay. She says she's fine and thanks you for the water you gave her earlier.")
+      
+  if location == "green":
+    print ()
+    print ("You enter the green room. It looks like a classroom.")
+    print ("There are two doors, one marked red and one marked silver.")
+    print ("To the left there is a backpack that a kid left behind.")
+    print ("To the right there is a kid who has his hands on his stomach and sitting at a desk by the window.")
+
+    while True:
+      print ()
+      print ("[1] Go to the red door.")
+      print ("[2] Go to the silver door")
+      print ("[3] Search inside the backpack.")
+      print ("[4] Ask the kid if he is okay.")
+
+      print ()
+      choice = int(input("What do you want to do: "))
+
+      if choice == 1 and red_locked == True and red_key == False:
+        print ()
+        print ("This door is locked. Find the red key to unlock it.")
+      elif choice == 1 and red_locked == True and red_key == True:
+        print ()
+        print ("The door is locked but you have the key for it. You unlock the door and go in.")
+        location = "red"
+        break
+      elif choice == 1 and red_locked == False:
+        location = "red"
+        break
+
+      elif choice == 2 and silver_locked == True and silver_key == False:
+        print ()
+        print ("This door is locked. Find the silver key to unlock it.")
+      elif choice == 2 and silver_locked == True and silver_key == True:
+        print ()
+        print ("The door is locked but you have the key for it. You unlock the door and go in.")
+        location = "silver"
+        break
+      elif choice == 2 and silver_locked == False:
+        location = "silver"
+        break
+  
+      elif choice == 3:
+        print ()
+        print ("You take a look in the backpack. There is nothing that you need. Only a couple textbooks and a pencil case.")
+      
+      elif choice == 4 and boy_hungry == True and snacks == False:
+        print ()
+        print ("You go up to the boy and he immediately asks you for food because he's starving. You should go find some food to give him.")
+      elif choice == 4 and boy_hungry == True and snacks == True:
+        print ()
+        print ("You go up to the boy and he immediately asks you for food because he's starving. You give him the snacks that you found earlier and he thanks you by giving you the purple key.")
+        purple_key = True
+        boy_hungry = False
+      elif choice == 4 and boy_hungry == False:
+        print ()
+        print ("You go up to the boy to ask if he needs anything. He says his stomach hurts a little. Maybe it's because he ate the snacks too quickly.")
+
+  if location == "silver":
+    print ()
+    print ("You enter the silver room. It looks like it is the main lobby of the building")
+    print ("There are three doors. One is yellow, one is green and one is purple.")
+    print ("To your left there is a couch.")
+    print ("To your right there is an empty plant pot.")
+
+    while True:
+      print ()
+      print ("[1] Go to the yellow door.")
+      print ("[2] Go to the green door.")
+      print ("[3] Go to the purple door.")
+      print ("[4] Take a look around the couch.")
+      print ("[5] Inspect the plant pot.")
+
+      print ()
+      choice = int(input("What do you want to do: "))
+
+      if choice == 1 and yellow_locked == True and yellow_key == False:
+        print ()
+        print ("This door is locked. Find the yellow key to unlock it.")
+      elif choice == 1 and yellow_locked == True and yellow_key == True:
+        print ()
+        print ("The door is locked but you have the key for it. You unlock the door and go in.")
+        location = "yellow"
+        break
+      elif choice == 1 and yellow_locked == False:
+        location = "yellow"
+        break
+
+      elif choice == 2 and green_locked == True and green_key == False:
+        print ()
+        print ("This door is locked. Find the green key to unlock it.")
+      elif choice == 2 and green_locked == True and green_key == True:
+        print ()
+        print ("The door is locked but you have the key for it. You unlock the door and go in.")
+        location = "green"
+        break
+      elif choice == 2 and green_locked == False:
+        location = "green"
+        break
+
+      elif choice == 3 and purple_locked == True and purple_key == False:
+        print ()
+        print ("This door is locked. Find the purple key to unlock it.")
+      elif choice == 3 and purple_locked == True and purple_key == True:
+        print ()
+        print ("The door is locked but you have the key for it. You unlock the door and go in.")
+        location = "purple"
+        break
+      elif choice == 3 and purple_locked == False:
+        location = "purple"
+        break
+
+      elif choice == 4:
+        print ()
+        print ("You take a look around the couch and find nothing that you'll need")
+      
+      elif choice == 5:
+        print ()
+        print ("You inspect the plant pot and find nothing that interests you.")
+
+  if location == "purple":
+    print ()
+    print ("You enter the purple room.")
+    print ("There are two doors, one is silver and one is black, and there is a wooden barricade up that has light shining through it.")
+    print ("There is also a couch in the corner of the room.")
+
+    while True:
+      print ()
+      print ("[1] Go to the silver door.")
+      print ("[2] Go to the black door.")
+      print ("[3] Go to the barricade door.")
+      print ("[4] Take a look around the couch.")
+
+      print ()
+      choice = int(input("What do you want to do: "))
+
+      if choice == 1 and silver_locked == True and silver_key == False:
+        print ()
+        print ("This door is locked. Find the silver key to unlock it.")
+      elif choice == 1 and silver_locked == True and silver_key == True:
+        print ()
+        print ("The door is locked but you have the key for it. You unlock the door and go in.")
+        location = "silver"
+        break
+      elif choice == 1 and silver_locked == False:
+        location = "silver"
+        break
+
+      elif choice == 2 and black_locked == True and black_key == False:
+        print ()
+        print ("This door is locked. Find the black key to unlock it")
+      elif choice == 2 and black_locked == True and black_key == True:
+        print ()
+        print ("This door is locked but you have the key for it. You unlock the door and go in")
+        location = "black"
+        break
+      elif choice == 2 and black_locked == False:
+        location = "black"
+        break
+      
+      elif choice == 3 and hammer == False:
+        print ()
+        print ("You go up towars the barricade and can see freedom, but the barricade is too strong for you to just run through. Find something to bring it down.")
+      elif choice == 3 and hammer == True:
+        print ()
+        print ("You take the hammer and start swinging at the barricade. After a couple of swings you are able to break down the barricade and you run outside towards freedom after getting the two other kids that you found on your journey to the exit.")
+        location = "outside"
+        break
+
+      elif choice == 4 and hammer == False:
+        print ()
+        print ("You look around the area of the couch for something you need. You look underneathe the couch and find a hammer.")
+        hammer = True
+      elif choice == 4 and hammer == True:
+        print ()
+        print ("You look around the area of the couch but there is nothing to be found.")
+
+  if location == "outside":
+    print ()
+    break
+
+print ("Congratulations! You escaped the building and won!")
