@@ -1,0 +1,54 @@
+###RAY WANG FINAL EVALUATION###
+
+"""
+###String-2: count_hi###
+def count_hi(str):
+  count = 0
+  for x in range(0, len(str)-1):
+    if str[x] == 'h'and str[x+1] == 'i':
+        count += 1
+  return count
+"""
+  
+"""
+###String-2: cat_dog###
+def cat_dog(str):
+  count_dog = 0
+  count_cat = 0
+  
+  for i in range(len(str)-2):
+    if str[i:i+3] == "dog":
+      count_dog = count_dog + 1
+    if str[i:i+3] == "cat":
+      count_cat = count_cat + 1  
+        
+  if count_dog == count_cat:
+    return True
+  return False
+"""
+    
+"""
+###String-2: count_code###
+def count_code(str):
+  count = 0
+  for i in range(len(str)-3):
+    if str[i:i+2] == "co" and str[i+3] == "e":
+        count = count + 1
+  return count
+"""
+
+"""
+###String-1: first_two"""
+def first_two(str):
+  return str[:2]
+"""
+
+"""
+###Logic-1: sorta_sum###
+def sorta_sum(a, b):
+  sum = a + b
+  if sum >= 10 and sum <= 19:
+    return 20
+  return sum
+"""
+  
